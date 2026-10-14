@@ -17,6 +17,16 @@ describe('styleguide', () => {
     expect(screen.getByText('Surfaces')).toBeOnTheScreen();
   });
 
+  it('shows every base component and the toast trigger', async () => {
+    await renderWithProviders(<StyleguideRoute />);
+    expect(await screen.findByText('Components')).toBeOnTheScreen();
+    for (const title of ['Buttons', 'Fields', 'Skeletons', 'Toast']) {
+      expect(screen.getByText(title)).toBeOnTheScreen();
+    }
+    expect(screen.getByRole('button', { name: 'Show toast' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Show password' })).toBeOnTheScreen();
+  });
+
   it('switches the language and persists the theme choice', async () => {
     await renderWithProviders(<StyleguideRoute />);
     fireEvent.press(await screen.findByText('Українська'));

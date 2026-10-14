@@ -6,6 +6,8 @@ import { locales, themeModes, type ThemeMode } from '@/shared/storage/preference
 import { useThemeMode } from '@/shared/theme/theme-provider';
 import { colorNames, palette, shadows, themes, type ThemeName } from '@/shared/theme/tokens';
 
+import { StyleguideComponents } from './styleguide-components';
+
 const THEME_LABEL: Record<ThemeMode, 'themeSystem' | 'themeLight' | 'themeDark'> = {
   system: 'themeSystem',
   light: 'themeLight',
@@ -129,6 +131,8 @@ export function Styleguide() {
           <Text className="text-body text-foreground">shadow-modal</Text>
         </View>
       </View>
+
+      <StyleguideComponents />
     </ScrollView>
   );
 }

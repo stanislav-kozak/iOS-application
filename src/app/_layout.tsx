@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 
 import { AppProviders } from '@/shared/providers/app-providers';
 import { fontAssets } from '@/shared/theme/fonts';
+import { Toaster } from '@/shared/ui/toaster';
 import { useThemeColors, useThemeMode } from '@/shared/theme/theme-provider';
 
 void SplashScreen.preventAutoHideAsync();
@@ -25,6 +26,7 @@ function Shell() {
     <>
       <StatusBar style={resolved === 'dark' ? 'light' : 'dark'} />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.background } }} />
+      <Toaster />
     </>
   );
 }
